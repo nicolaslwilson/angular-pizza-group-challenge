@@ -1,0 +1,17 @@
+<p> Award winning PIES!! {{ placeOrder.pizza }}</p>
+
+<div class="sizeButtons row" >
+  <button type="button" name="button" ng-click="placeOrder.setPizzaSize('Small')">Small</button>
+  <button type="button" name="button" ng-click="placeOrder.setPizzaSize('Medium')">Medium</button>
+  <button type="button" name="button" ng-click="placeOrder.setPizzaSize('Big Boi')">Big Boi</button>
+</div>
+
+<div class="toppingButtons row">
+  <div class="topping-button-container col-md-2" ng-repeat="topping in placeOrder.toppingArray">
+    <button type="button" name="button" ng-click="placeOrder.addPizzaTopping(topping)">{{ topping }}</button>
+  </div>
+</div>
+
+<div class="row addPizza">
+  <button ng-click="placeOrder.addPizza()" type="button" name="button">Add Pizza</button>
+</div>
