@@ -22,7 +22,11 @@
 /*#placeOrder end */
 
 /*#orderList start */
-
+#orderList.order {
+  float : left;
+  display : inline-block;
+  margin : 20px;
+}
 /*#orderList end */
 
 /*#confirmedPizzas start */

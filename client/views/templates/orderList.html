@@ -1,11 +1,19 @@
 <div id="orderList" class="row">
-  <p> Here are your pending pizzas:</p>
-  <h2>Unconfirmed Pizzas</h2>
+  <h2> Here are your pending pizzas:</h2>
+</div>
+
+<div class="row">
   <div ng-repeat="pizza in orderList.pizzaArray track by $index">
     <div ng-if="!pizza.confirmed">
-      <p>{{pizza}}</p>
-      <button ng-click="orderList.confirmPizza(pizza)" type="button" name="button">Start Cookin'</button>
-      <button ng-click="orderList.cancelPizza($index)" type="button" name="button">Changed my Mind</button>
+      <div class="order">
+        <p>{{ pizza.size }}</p>
+          <div ng-repeat="(topping, value) in pizza.toppings" >
+            <p ng-show="pizza.toppings[topping]">{{ topping }}</p>
+          </div>
+        <p>{{ pizza.price | currency }}</p>
+      </div>
+      <button ng-click="pizza.confirmPizza(pizza)" type="button" class="btn btn-success">Start Cookin'</button>
+      <button ng-click="pizza.cancelPizza($index)" type="button"  class="btn btn-danger">Changed my Mind</button>
     </div>
   </div>
 </div>
