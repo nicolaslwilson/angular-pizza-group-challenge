@@ -5,6 +5,19 @@
 
 
 /*#placeOrder start */
+#placeOrder .toppings-container .topping button {
+  background-color: salmon;
+}
+#placeOrder .toppings-container .topping,
+#placeOrder .toppingButtons button{
+  display: inline-block;
+  margin: 0.05em;
+}
+
+
+#placeOrder .removeToppingButtons {
+  display: none;
+}
 
 /*#placeOrder end */
 
