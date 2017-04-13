@@ -1,9 +1,11 @@
-<h2>Confirmed Pizzas</h2>
-<div ng-repeat="pizza in confirmedPizzas.pizzaArray">
-  <div ng-if="pizza.confirmed">
-    <p>{{pizza}}</p>
+<div id="confirmedPizzas" class="row">
+  <h2>Confirmed Pizzas</h2>
+  <div ng-repeat="pizza in confirmedPizzas.pizzaArray">
+    <div ng-if="pizza.confirmed">
+      <p>{{pizza}}</p>
+    </div>
   </div>
-</div>
-<div class="total">
-  {{confirmedPizzas.orderObject.total}}
+  <div class="total">
+    {{confirmedPizzas.orderObject.total}}
+  </div>
 </div>
