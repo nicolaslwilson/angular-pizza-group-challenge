@@ -1,6 +1,6 @@
 pizzaApp.factory('PizzaService', [function () {
   var pizzaObject = {
-    size : '',
+    size : 'Medium',
     toppings: {},
     price : 0,
     confirmed : false
@@ -82,7 +82,7 @@ function updatePrice(pizzaObject) {
         break;
   }
   for (var topping in pizzaObject.toppings) {
-    if(topping){
+    if(pizzaObject.toppings[topping] === true){
       price++ ;
     }
   }
