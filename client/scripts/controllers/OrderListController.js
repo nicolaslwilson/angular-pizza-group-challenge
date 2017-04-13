@@ -2,8 +2,9 @@ pizzaApp.controller('OrderListController', [ 'PizzaService', function(PizzaServi
   var orderList = this;
 
   orderList.list = PizzaService.pizzaObject;
-  orderList.pendingPizzas = PizzaService.pendingPizzas;
-
+  orderList.pizzaArray = PizzaService.pizzaArray;
+  orderList.confirmPizza = PizzaService.confirmPizza;
+  orderList.cancelPizza = PizzaService.cancelPizza;
   console.log(' OrderListController Loaded ', orderList.list);
 
 
