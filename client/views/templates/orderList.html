@@ -7,9 +7,3 @@
     <button ng-click="orderList.cancelPizza($index)" type="button" name="button">Changed my Mind</button>
   </div>
 </div>
-<h2>Confirmed Pizzas</h2>
-<div ng-repeat="pizza in orderList.pizzaArray">
-  <div ng-if="pizza.confirmed">
-    <p>{{pizza}}</p>
-  </div>
-</div>

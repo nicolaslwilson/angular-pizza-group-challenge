@@ -12,6 +12,11 @@ pizzaApp.config(['$routeProvider', function($routeProvider) {
           controller: 'OrderListController',
           controllerAs: 'orderList'
         })
+        .when('/confirmedPizzas', {
+          templateUrl: '/views/templates/confirmedPizzas.html',
+          controller: 'ConfirmedPizzasController',
+          controllerAs: 'confirmedPizzas'
+        })
         .otherwise({
           redirectTo: 'placeOrder'
         });

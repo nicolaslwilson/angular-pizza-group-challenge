@@ -1,4 +1,4 @@
 .diner-nav ul li {
-  width: 100px;
+  max-width: 100%;
   display: inline-block;
 }

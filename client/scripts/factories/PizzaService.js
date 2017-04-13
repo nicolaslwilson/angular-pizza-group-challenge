@@ -6,7 +6,28 @@ pizzaApp.factory('PizzaService', [function () {
     confirmed : false
   };
 
-  var pizzaArray = [];
+  var pizzaArray = [{
+    size : 'Small',
+    toppings: {Anchovies: true},
+    price : 7,
+    confirmed : false
+  },
+  {
+    size : 'Medium',
+    toppings: {Gorgonzola: true, Kimchi: true},
+    price : 9,
+    confirmed : false
+  },
+  {
+    size : 'Big Boi',
+    toppings: {Shitaake: true},
+    price : 11,
+    confirmed : true
+  }];
+
+  var orderObject = {
+    total: 0
+  };
 
   var toppingArray = ['Anchovies', 'Gorgonzola', 'Shitaake', 'Ghost Pepper', 'Kimchi', 'Seasonal Squash'];
 
@@ -22,11 +43,23 @@ pizzaApp.factory('PizzaService', [function () {
   updatePrice(pizzaObject);
  }
 
+ function removePizzaTopping(topping) {
+  pizzaObject.toppings[topping] = false;
+  console.log('pizzaObject.toppings =', pizzaObject.toppings);
+  updatePrice(pizzaObject);
+ }
+
 function addPizza() {
-  var newPizza = angular.copy(pizzaObject);
-  pizzaArray.push(newPizza);
-  console.log('pizzaArray array:', pizzaArray);
-  clearOrder();
+  if (pizzaObject.size) {
+    var newPizza = angular.copy(pizzaObject);
+    pizzaArray.push(newPizza);
+    console.log('pizzaArray array:', pizzaArray);
+    clearOrder();
+  } else {
+    alert( 'WHAZZUP!!! What size do you want?');
+  }
+
+
 }
 
 function clearOrder() {
@@ -60,6 +93,7 @@ function updatePrice(pizzaObject) {
 function confirmPizza(pizzaObject) {
   console.log('confirming pizza:', pizzaObject);
   pizzaObject.confirmed = true;
+  calculateOrderTotal(pizzaArray);
 }
 
 function cancelPizza(pizzaIndex) {
@@ -67,14 +101,33 @@ function cancelPizza(pizzaIndex) {
   console.log(pizzaArray.splice(pizzaIndex, 1));
 }
 
+function calculateOrderTotal(pizzaArray) {
+  var total = 0;
+  console.log(pizzaArray);
+  for (var i in pizzaArray) {
+    console.log('Pizza object', pizzaArray[i]);
+    if (pizzaArray[i].confirmed) {
+      console.log(pizzaArray[i].price);
+      total += pizzaArray[i].price;
+    }
+  }
+  console.log('Var tota', total);
+  orderObject.total = total;
+
+}
+
+
   return {
     pizzaObject : pizzaObject,
     setPizzaSize : setPizzaSize,
     toppingArray: toppingArray,
     addPizzaTopping : addPizzaTopping,
+    removePizzaTopping : removePizzaTopping,
     addPizza: addPizza,
     pizzaArray: pizzaArray,
     confirmPizza: confirmPizza,
-    cancelPizza: cancelPizza
+    cancelPizza: cancelPizza,
+    orderObject: orderObject,
+    calculateOrderTotal: calculateOrderTotal
   };
 }]);

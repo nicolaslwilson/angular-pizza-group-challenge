@@ -1,12 +1,13 @@
 pizzaApp.controller('PlaceOrderController', [ 'PizzaService' , function(PizzaService){
   var placeOrder = this;
 
-  placeOrder.pizza = PizzaService.pizzaObject;
+  placeOrder.pizzaObject = PizzaService.pizzaObject;
   placeOrder.setPizzaSize = PizzaService.setPizzaSize;
   placeOrder.toppingArray = PizzaService.toppingArray;
   placeOrder.addPizzaTopping = PizzaService.addPizzaTopping;
   placeOrder.addPizza = PizzaService.addPizza;
-
-  console.log(' PlaceOrderController Loaded ' , placeOrder.pizza );
+  placeOrder.removePizzaTopping = PizzaService.removePizzaTopping;
+  
+  console.log(' PlaceOrderController Loaded ' , placeOrder.pizzaObject );
 
 }]);
