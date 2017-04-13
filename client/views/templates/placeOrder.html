@@ -1,38 +1,40 @@
 <div id="placeOrder" class="row">
   <div class="col-md-8">
-
+    <h2>Create your Pizza</h2>
     <div class="sizeButtons row" >
-      <h2>Pick Size</h2>
-      <button type="button" name="button" ng-click="placeOrder.setPizzaSize('Small')">Small</button>
-      <button type="button" name="button" ng-click="placeOrder.setPizzaSize('Medium')">Medium</button>
-      <button type="button" name="button" ng-click="placeOrder.setPizzaSize('Big Boi')">Big Boi</button>
+      <h3>Pick a size:</h3>
+      <button class="btn btn-success" type="button" name="button" ng-click="placeOrder.setPizzaSize('Small')">Small</button>
+      <button class="btn btn-success" type="button" name="button" ng-click="placeOrder.setPizzaSize('Medium')">Medium</button>
+      <button class="btn btn-success" type="button" name="button" ng-click="placeOrder.setPizzaSize('Big Boi')">Big Boi</button>
     </div>
 
     <div class="toppingButtons row">
-      <h2>Add Toppings</h2>
-      <div ng-hide="placeOrder.pizzaObject.toppings[topping]" class="topping-button-container col-md-2" ng-repeat="topping in placeOrder.toppingArray">
-        <button type="button" name="button" ng-click="placeOrder.addPizzaTopping(topping)">{{ topping }}</button>
-      </div>
+      <h3>Add Toppings:</h3>
+
+        <button ng-hide="placeOrder.pizzaObject.toppings[topping]"  ng-repeat="topping in placeOrder.toppingArray" class="btn btn-success" type="button" name="button" ng-click="placeOrder.addPizzaTopping(topping)">{{ topping }}</button>
     </div>
 
-    <div class="toppingButtons row">
-      <h2>Remove Toppings</h2>
+    <div class="removeToppingButtons row">
+      <h2>Remove Toppings:</h2>
       <div ng-show="placeOrder.pizzaObject.toppings[topping]" class="topping-button-container col-md-2" ng-repeat="topping in placeOrder.toppingArray">
         <button  type="button" name="button" ng-click="placeOrder.removePizzaTopping(topping)">{{ topping }}</button>
       </div>
     </div>
 
-    <div class="row addPizza">
-      <button ng-click="placeOrder.addPizza()" type="button" name="button">Add Pizza</button>
-    </div>
+
   </div>
   <div class="col-md-4">
-    <h2> This is the pie you WANT!! </h2>
-    <p>{{ placeOrder.pizzaObject.size }}</p>
-      <div ng-repeat="(topping, value) in placeOrder.pizzaObject.toppings" >
-        <p ng-show="placeOrder.pizzaObject.toppings[topping]">{{ topping }}</p>
+    <h2>Your pizza:</h2>
+    <h4 class="size">Size: {{ placeOrder.pizzaObject.size }}</h4>
+    <div class="toppings-container row">
+      <h5>Toppings:</h5>
+      <div ng-show="placeOrder.pizzaObject.toppings[topping]" class="topping" ng-repeat="(topping, value) in placeOrder.pizzaObject.toppings" >
+        <button ng-click="placeOrder.removePizzaTopping(topping)" class="btn btn-danger">{{ topping }} <i  class="glyphicon glyphicon-remove"></i></button>
       </div>
-    <p>{{ placeOrder.pizzaObject.price }}</p>
-
+    </div>
+    <p class="price">${{ placeOrder.pizzaObject.price }}.00</p>
+    <div class="row addPizza">
+      <button class="btn btn-primary" ng-click="placeOrder.addPizza()" type="button" name="button">Add Pizza</button>
+    </div>
   </div>
 </div>
