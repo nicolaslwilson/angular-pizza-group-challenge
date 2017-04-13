@@ -1,11 +1,20 @@
 <div id="confirmedPizzas" class="row">
   <h2>Confirmed Pizzas</h2>
+  <!--loop through pizzaArray-->
   <div ng-repeat="pizza in confirmedPizzas.pizzaArray">
-    <div ng-if="pizza.confirmed">
-      <p>{{pizza}}</p>
+    <div ng-if="pizza.confirmed"><!--only display pizzas that have property confirmed === true-->
+      <div class="row pizza-row">
+        <h3>{{pizza.size}} Pizza Pie</h3>
+
+        <div>
+          <span>Toppings: </span>
+          <span ng-show="pizza.toppings[topping]" ng-repeat="(topping, value) in pizza.toppings" class="toppings-display">{{topping}}</span><span class="topping-comma">, </span>
+        </div>
+        <h4>Cost-o-Pie: ${{pizza.price}}</h4>
+      </div>
     </div>
   </div>
-  <div class="total">
-    {{confirmedPizzas.orderObject.total}}
+  <div class="order-total">
+    <h2>Order Total: ${{confirmedPizzas.orderObject.total}}</h2>
   </div>
 </div>

@@ -13,5 +13,32 @@
 /*#orderList end */
 
 /*#confirmedPizzas start */
+#confirmedPizzas .pizza-row {
+  margin-bottom: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: lightgray;
+}
 
+#confirmedPizzas h3 {
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+#confirmedPizzas .topping-comma:last-child {
+  display: none;
+}
+/*
+#confirmedPizzas
+
+#confirmedPizzas
+
+#confirmedPizzas
+
+#confirmedPizzas
+
+#confirmedPizzas
+
+#confirmedPizzas*/
 /*#confirmedPizzas end */
