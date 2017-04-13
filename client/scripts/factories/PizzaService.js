@@ -82,7 +82,7 @@ function updatePrice(pizzaObject) {
         break;
   }
   for (var topping in pizzaObject.toppings) {
-    if(topping){
+    if(pizzaObject.toppings[topping] === true){
       price++ ;
     }
   }
