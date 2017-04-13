@@ -1,6 +1,6 @@
 pizzaApp.factory('PizzaService', [function () {
   var pizzaObject = {
-    size : '',
+    size : 'Medium',
     toppings: {},
     price : 0,
     confirmed : false
